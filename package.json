@@ -1,0 +1,11 @@
+{
+	"name": "campfire",
+	"version": 0.0,
+	"licenses": ["MIT"],
+	"main": "index.html",
+	"window": {
+		"icon": "",
+		"title": "Campfire",
+		"toolbar": false
+	}
+}
