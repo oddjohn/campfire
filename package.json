@@ -7,6 +7,7 @@
 	"window": {
 		"icon": "",
 		"title": "Campfire",
+		"position": "center",
 		"toolbar": false,
 		"show": false,
 		"width": 1024,

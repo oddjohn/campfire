@@ -2,6 +2,7 @@ var gui = require('nw.gui');
 var win = gui.Window.get();
 var stage, ctx;
 $(document).ready(function() {
+	win.setResizable(false);
 	win.show();
 	stage = $('#stage').get(0);
 	ctx = stage.getContext('2d');
