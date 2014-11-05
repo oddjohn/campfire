@@ -3,9 +3,17 @@
 	"version": 0.0,
 	"licenses": ["MIT"],
 	"main": "index.html",
+	"nodejs": true,
 	"window": {
 		"icon": "",
 		"title": "Campfire",
-		"toolbar": false
+		"toolbar": false,
+		"show": false,
+		"width": 1024,
+		"height": 576,
+		"resizable": false
+	},
+	"webkit": {
+		"plugin": true
 	}
 }
