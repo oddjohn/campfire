@@ -5,14 +5,14 @@
 	"main": "index.html",
 	"nodejs": true,
 	"window": {
+		"resizable": false,
 		"icon": "",
 		"title": "Campfire",
 		"position": "center",
 		"toolbar": false,
 		"show": false,
 		"width": 1024,
-		"height": 576,
-		"resizable": false
+		"height": 576
 	},
 	"webkit": {
 		"plugin": true

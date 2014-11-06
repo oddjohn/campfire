@@ -8,14 +8,29 @@ requirejs.config({
 	}
 });
 
-function init(Game) {
+var init = function(Game) {
 	mGame = new Game();
 	mGame.init();
 }
 
 if(typeof global != 'undefined') {
 	define(["Game"], init);
-	require('nw.gui').Window.get().show();
+	var gui = require('nw.gui');
+	var win = gui.Window.get();
+	window.onkeydown = function(event) {
+		switch (event.keyIdentifier) {
+			case 'F5':
+				win.reload(); break;
+			case 'F11':
+				win.toggleFullscreen(); break;
+			case 'F12':
+				if (!win.isDevToolsOpen()) win.showDevTools();
+				else win.closeDevTools(); break;
+			default:
+				break;
+		}
+	}
+	win.show();
 } else {
 	require(["Game"], init);
 }
