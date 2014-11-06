@@ -2,23 +2,23 @@ define(function(require, exports, module) {
 	var $ = require("jquery");
 	var KeyEvent = require("awt/KeyEvent");
 	var Ellipse = require("awt/Ellipse");
+	var Circle = require("awt/Circle");
 
 	function Game() {
 		var self = this;
 	   	self.stage = {};
 	    self.scean = {};
-	    self.ctx = {};
-	    self.x = 0;
+	    self.graphics = {};
+
 	    self.update = function () {
-	    	self.x++;
-	    	if(self.x>window.innerWidth) self.x=0;
 	    	self.render();
 	    };
+
 	    self.render = function() {
-	    	ctx = self.scean.getContext("2d");
-	    	self.scean.width = self.scean.width;
-	    	ctx.fillColor='#FFF';
-	    	ctx.fillRect(self.x,0,window.innerWidth,50);
+	    	$(self.scean).attr({
+	    		width: window.innerWidth,
+	    		height: window.innerHeight
+	    	});
 	    };
 		Game.prototype.speed = 50;
 
@@ -40,12 +40,14 @@ define(function(require, exports, module) {
 					width: '100%',
 					height: '100%',
 					position: 'absolute',
-					overflow: 'hidden'
+					overflow: 'hidden',
+					backgroundColor: 'black'
 				})
 				.append(scean);
 			$('body').append(stage);
 			self.stage = stage.get(0);
 			self.scean = scean.get(0);
+	    	self.graphics = self.scean.getContext("2d");
 			self.interval = setInterval(self.update, Game.speed);
 		};
 	}

@@ -1,3 +1,5 @@
+var mGame;
+
 requirejs.config({
 	baseUrl: "scripts",
 	paths: {
@@ -6,9 +8,14 @@ requirejs.config({
 	}
 });
 
-var mGame;
-
-require(["Game"], function(Game) {
+function init(Game) {
 	mGame = new Game();
 	mGame.init();
-});
+}
+
+if(typeof global != 'undefined') {
+	define(["Game"], init);
+	require('nw.gui').Window.get().show();
+} else {
+	require(["Game"], init);
+}
