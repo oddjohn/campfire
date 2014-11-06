@@ -9,7 +9,7 @@
 		"title": "Campfire",
 		"position": "center",
 		"toolbar": false,
-		"show": false,
+		"show": true,
 		"width": 1024,
 		"height": 576,
 		"resizable": false
