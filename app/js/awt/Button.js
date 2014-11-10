@@ -1,1 +1,0 @@
-define(function(a,b,c){function d(a){e.call(this),this._value=a||""}var e=a("awt/Component");d.prototype=new e,c.exports=d});
