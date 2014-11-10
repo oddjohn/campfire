@@ -1,0 +1,1 @@
+define(function(a,b,c){function d(){e=this,e.graphics={}}var e;d.prototype.add=function(a){a.graphics=this.graphics},c.exports=d});

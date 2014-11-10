@@ -1,0 +1,1 @@
+define(function(a,b,c){function d(){this._strings_=[]}d.prototype.append=function(a){this._strings_.push(a)},d.prototype.toString=function(){return this._strings_.join("")},c.exports=d});

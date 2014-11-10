@@ -1,0 +1,1 @@
+define(function(a,b,c){function d(){}c.exports=d});

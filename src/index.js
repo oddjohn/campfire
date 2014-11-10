@@ -1,16 +1,12 @@
 requirejs.config({
-	baseUrl: 'scripts',
+	baseUrl: 'js',
 	paths: {
-		'jquery': 'jquery-1.11.1.min',
-		'awt': '../campfire-framework/awt'
+		jquery: '../libs/jquery-1.11.1.min'
 	}
 });
-var init = function(Game) {
-	new Game().init();
-};
 if(typeof global != 'undefined') {
 	define(['Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
-		init(Game);
+		new Game().init();
 		var gui = require('nw.gui');
 		var win = gui.Window.get();
 		window.onkeydown = function(event) {
@@ -29,5 +25,7 @@ if(typeof global != 'undefined') {
 		win.show();
 	});
 } else {
-	require(['Game'], init);
+	require(['Game'], function(Game) {
+		new Game().init();
+	});
 }
