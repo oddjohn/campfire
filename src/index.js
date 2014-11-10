@@ -2,11 +2,12 @@ requirejs.config({
 	baseUrl: 'js',
 	paths: {
 		jquery: '../libs/jquery-1.11.1.min'
-	}
+	},
+	waitSeconds: 15
 });
 if(typeof global != 'undefined') {
 	define(['Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
-		new Game().init();
+		new Game();
 		var gui = require('nw.gui');
 		var win = gui.Window.get();
 		window.onkeydown = function(event) {
@@ -25,7 +26,7 @@ if(typeof global != 'undefined') {
 		win.show();
 	});
 } else {
-	require(['Game'], function(Game) {
-		new Game().init();
+	requirejs(['Game'], function(Game) {
+		new Game();
 	});
 }

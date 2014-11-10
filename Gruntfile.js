@@ -3,25 +3,27 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
+        mangle: {
+          except: ['require','define','exports','module']
+        }
       },
       buildall: {
         options: {
-            mangle: true,
-            compress: {
-                drop_console: true
-            },
-            report: "min"
+          compress: {
+            drop_console: true
+          },
+          report: "min"
         },
         files: [{
-            expand: true,
-            cwd: 'src',
-            src: '**/*.js',
-            dest: 'app/js'
+          expand: true,
+          cwd: 'src',
+          src: '**/*.js',
+          dest: 'app/js'
         }, {
-            expand: true,
-            cwd: 'campfire-framework/src',
-            src: '**/*.js',
-            dest: 'app/js'
+          expand: true,
+          cwd: 'campfire-framework/src',
+          src: '**/*.js',
+          dest: 'app/js'
         }]
       }
     },
