@@ -1,14 +1,14 @@
 (function(require) {
 	"use strict";
-	requirejs.config({
+	require.config({
 		baseUrl: 'js',
 		paths: {
-			jquery: '../libs/jquery-1.11.1.min'
+			jquery: '../../app/libs/jquery/dist/jquery.min.js'
 		},
 		waitSeconds: 15
 	});
 	if(typeof global != 'undefined') {
-		define(['Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
+		define(['../../app/js/Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
 			new Game();
 			var gui = require('nw.gui');
 			var win = gui.Window.get();
@@ -28,7 +28,7 @@
 			win.show();
 		});
 	} else {
-		requirejs(['Game'], function(Game) {
+		require(['../../app/js/Game'], function(Game) {
 			new Game();
 		});
 	}
