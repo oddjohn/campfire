@@ -1,4 +1,5 @@
 define(function(require, exports, module) {
+	"use strict";
 	var $ = require('jquery');
 	var Stage = require('awt/Stage');
 	var _;
