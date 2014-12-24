@@ -23,7 +23,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'campfire-framework/src',
           src: '**/*.js',
-          dest: 'app'
+          dest: 'app/js'
         }]
       }
     },
