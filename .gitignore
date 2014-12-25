@@ -2,5 +2,6 @@ node_modules/
 build/
 .idea/
 app/js/
+app/libs/
 
 start.cmd

@@ -1,26 +1,14 @@
-requirejs.config({
-	baseUrl: 'js',
-	paths: {
-		jquery: '../libs/zepto.min',
-		underscore: '../libs/underscore-min',
-		backbone: '../libs/backbone-min'
-	},
-	shim: {
-		jquery: {
-			exports: '$'
+(function(require) {
+	"use strict";
+	require.config({
+		baseUrl: 'js',
+		paths: {
+			jquery: '../../app/libs/jquery/dist/jquery.min.js'
 		},
-		underscore: {
-			exports: '_'
-		},
-		backbone: {
-			deps: ['jquery', 'underscore'],
-			exports: 'Backbone'
-		}
-	},
-	waitSeconds: 15
-})(['backbone'], function(Backbone) {
+		waitSeconds: 15
+	});
 	if(typeof global != 'undefined') {
-		define(['Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
+		define(['../../app/js/Game', 'awt/KeyEvent'], function(Game, KeyEvent) {
 			new Game();
 			var gui = require('nw.gui');
 			var win = gui.Window.get();
@@ -40,8 +28,8 @@ requirejs.config({
 			win.show();
 		});
 	} else {
-		requirejs(['Game'], function(Game) {
+		require(['../../app/js/Game'], function(Game) {
 			new Game();
 		});
 	}
-});
+})(requirejs);

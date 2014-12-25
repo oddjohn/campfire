@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src',
           src: '**/*.js',
-          dest: 'app/js'
+          dest: 'app'
         }, {
           expand: true,
           cwd: 'campfire-framework/src',
