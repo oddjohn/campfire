@@ -2,33 +2,39 @@ define(function(require, exports, module) {
 	"use strict";
 	var $ = require('jquery');
 	var Stage = require('awt/Stage');
-	var _;
+	var Backbone = require('Backbone');
 
-	function Game() {
-		_ = this;
-		_.stage = {};
-		_.graphics = {};
-		_.init();
-	}
-	Game.prototype.update = function () {
-		_.render();
-	};
-	Game.prototype.speed = 10000;
-	Game.prototype.render = function() {
-		$(_.stage.scene).attr({
-			width: _.stage.width(),
-			height: _.stage.height()
-		});
-	};
-	Game.prototype.init = function () {
-		$(window).on({
-			keypress: function(evt) {handleKeyEvent(evt);},
-			contextmenu: function(evt) {evt.preventDefault();}
-		});
-		_.stage = new Stage($('#stage'));
-		_.graphics = _.stage.graphics;
-		_.interval = setInterval(_.update, Game.speed);
-	};
+	var Game = Backbone.Model.extend({
+		__stage: {},
+		__graphics: {},
+		__speed: 10000,
+		constructor: function() {
+			Backbone.Model.apply(this, arguments);
+		},
+		start: function () {
+			self.init();
+		},
+		update: function () {
+			self.render();
+		},
+		render: function() {
+			$(this.__stage.scene).attr({
+				width: this.__stage.width(),
+				height: this.__stage.height()
+			});
+		},
+		init: function () {
+			var self = this;
+			$(window).on({
+				keypress: function(evt) {self.handleKeyEvent(evt);},
+				contextmenu: function(evt) {evt.preventDefault();}
+			});
+			self.__stage = new Stage($('#stage'));
+			self.__graphics = self.__stage.graphics;
+			self.__interval = setInterval(self.update, Game.speed);
+		},
+		handleKeyEvent: handleKeyEvent
+	});
 	function handleKeyEvent(evt) {
 		switch(evt.keyCode) {
 			default:

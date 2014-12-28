@@ -7,6 +7,26 @@
 </head>
 <body>
 	<div id="stage"></div>
-	<script type="text/javascript" data-main="js/index" src="libs/require/require.js"></script>
+	<script type="text/javascript">
+		var require = {
+			baseUrl: 'js',
+			paths: {
+				'jquery': '../../app/libs/jquery/dist/jquery.min',
+				'Backbone': '../../app/libs/backbone/backbone',
+				'underscore': '../../app/libs/underscore/underscore-min'
+			},
+			shim: {
+				'Backbone': {
+					exports: 'Backbone',
+					deps: ['underscore', 'jquery']
+				},
+				'underscore': {
+					exports: '_'
+				}
+			},
+			waitSeconds: 15
+		};
+	</script>
+	<script type="text/javascript" data-main="index" src="libs/requirejs/require.js"></script>
 </body>
 </html>
