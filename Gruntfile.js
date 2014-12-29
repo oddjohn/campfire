@@ -29,7 +29,10 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['src/**/*.js', 'campfire-framework/src/**/*.js'],
+        files: [
+          'src/**/*.js',
+          'campfire-framework/src/**/*.js'
+        ],
         tasks: ['minall'],
         options: {
           spawn: true,
@@ -38,7 +41,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');

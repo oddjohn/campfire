@@ -3,7 +3,7 @@ campfire
 
 ### Description:
 
-This is a 2D Platformer Game in progress.
+This is a 2D platform Game in progress.
 Aiming at a aerial middle-ages background adventure story of 2d graphics.
 
 ### How to run:
