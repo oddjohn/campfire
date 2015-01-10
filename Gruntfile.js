@@ -9,9 +9,7 @@ module.exports = function(grunt) {
       },
       buildall: {
         options: {
-          compress: {
-            drop_console: true
-          },
+          compress: false,
           report: "min"
         },
         files: [{
