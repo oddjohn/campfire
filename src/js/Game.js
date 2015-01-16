@@ -15,7 +15,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Node'], function($, Stage, Ci
 			this.init();
 		},
 		update: function () {
-			this.clean();
+			this.clear();
 			this.render();
 		},
 		render: function () {
@@ -44,11 +44,8 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Node'], function($, Stage, Ci
 		resume: function() {
 			this.__interval__ = setInterval(this.update.bind(this), this.__speed__);
 		},
-		clean: function() {
-			this.__stage__.scene().attr({
-				width: this.__stage__.width(),
-				height: this.__stage__.height()
-			});
+		clear: function() {
+			this.__stage__.clear();
 		},
 		handleKeyEvent: handleKeyEvent
 	});
