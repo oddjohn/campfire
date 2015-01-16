@@ -5,12 +5,14 @@ module.exports = function(grunt) {
       options: {
         mangle: {
           except: ['require','define','exports','module']
-        }
+        },
+        drop_console: false
       },
       buildall: {
         options: {
           compress: false,
-          report: "min"
+          report: "min",
+          sourceMap: true
         },
         files: [{
           expand: true,
