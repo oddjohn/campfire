@@ -25,6 +25,16 @@ module.exports = function(grunt) {
         }]
       }
     },
+    cssmin: {
+        buildall: {
+            files: [{
+                expand: true,
+                cwd: 'src',
+                src: ['**/*.css'],
+                dest: 'app'
+            }]
+        }
+    },
     watch: {
       scripts: {
         files: [
@@ -40,9 +50,10 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('minall', ['uglify:buildall']);
-  grunt.registerTask('default', ['uglify', 'watch']);
+  grunt.registerTask('minall', ['uglify:buildall', 'cssmin:buildall']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'watch']);
 };

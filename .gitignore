@@ -3,5 +3,6 @@ build/
 .idea/
 app/js/
 app/libs/
+app/css/
 
 start.cmd

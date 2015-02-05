@@ -4,6 +4,10 @@
  */
 define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, Circle, Class) {
     "use strict";
+    /**
+     * @private
+     * @param {Event} evt
+     */
     function handleKeyEvent(evt) {
 		switch(evt.keyCode) {
 			default:
@@ -11,14 +15,32 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 		}
 	}
 
+    /**
+     * @param {string} key keyCode of keyboard key.
+     * @param {function} callback
+     * @returns {void}
+     */
+    function keyBind(key, callback) {
+        // TODO; Complete the method.
+    }
+
 	return Class.extend({
+        /**
+         * @type {Object}
+         */
 		__stage__: {},
+        /**
+         * @type {Object}
+         */
 		__graphics__: {},
         /**
          * milliseconds per frame last
          * @type {Number}
          */
 		__speed__: 50,
+        /**
+         * Start the game.
+         */
 		start: function () {
 			this.init();
 		},
