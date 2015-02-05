@@ -1,26 +1,46 @@
-define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Node'], function($, Stage, Circle, Node) {
-	"use strict";
-	function handleKeyEvent(evt) {
+/**
+ * Game Application
+ * @module Game
+ */
+define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, Circle, Class) {
+    "use strict";
+    function handleKeyEvent(evt) {
 		switch(evt.keyCode) {
 			default:
 				break;
 		}
 	}
 
-	return Node.extend({
+	return Class.extend({
 		__stage__: {},
 		__graphics__: {},
+        /**
+         * milliseconds per frame last
+         * @type {Number}
+         */
 		__speed__: 50,
 		start: function () {
 			this.init();
 		},
+        /**
+         * update the game state.
+         * @returns void
+         */
 		update: function () {
 			this.clear();
 			this.render();
 		},
+        /**
+         * render the stage
+         * @returns void
+         */
 		render: function () {
 			this.__circle__.update();
 		},
+        /**
+         * init the game application.
+         * @returns void
+         */
 		init: function () {
 			$(window).on({
 				keypress: function (evt) {
@@ -38,12 +58,24 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Node'], function($, Stage, Ci
 			this.__stage__.add(this.__circle__);
 			this.__interval__ = setInterval(this.update.bind(this), this.__speed__);
 		},
+        /**
+         * pause the game.
+         * @returns void
+         */
 		pause: function() {
 			clearInterval(this.__interval__);
 		},
+        /**
+         * resume the game when paused.
+         * @returns void
+         */
 		resume: function() {
 			this.__interval__ = setInterval(this.update.bind(this), this.__speed__);
 		},
+        /**
+         * clear the game stage
+         * @returns void
+         */
 		clear: function() {
 			this.__stage__.clear();
 		},

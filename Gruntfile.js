@@ -3,9 +3,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        mangle: {
-          except: ['require','define','exports','module']
-        },
+        mangle: true,
         drop_console: false
       },
       buildall: {
