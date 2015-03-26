@@ -37,7 +37,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
          * milliseconds per frame last
          * @type {Number}
          */
-		__speed__: 50,
+		__speed: 50,
         /**
          * Start the game.
          */
@@ -78,7 +78,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 			this.__circle = new Circle(0, 0, 50);
 			this.__circle.fillColor('#333');
 			this.__stage.add(this.__circle);
-			this.__interval = setInterval(this.update.bind(this), this.__speed__);
+			this.__interval = setInterval(this.update.bind(this), this.__speed);
 		},
         /**
          * pause the game.
@@ -92,7 +92,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
          * @returns void
          */
 		resume: function() {
-			this.__interval = setInterval(this.update.bind(this), this.__speed__);
+			this.__interval = setInterval(this.update.bind(this), this.__speed);
 		},
         /**
          * clear the game stage
