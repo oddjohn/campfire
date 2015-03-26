@@ -4,31 +4,29 @@
 	<meta charset="UTF-8">
 	<title>Campfire</title>
 	<link rel="stylesheet" href="css/styles.css">
+	<script type="text/javascript">
+        var require = {
+           baseUrl: 'js',
+			paths: {
+				'jquery': '../libs/jquery/dist/jquery.min',
+				'Backbone': '../libs/backbone/backbone',
+				'underscore': '../libs/underscore/underscore-min'
+			},
+			shim: {
+				'Backbone': {
+					exports: 'Backbone',
+					deps: ['underscore', 'jquery']
+				},
+				'underscore': {
+					exports: '_'
+				}
+			},
+			waitSeconds: 15
+		};
+	</script>
+    <script type="text/javascript" data-main="index" src="libs/requirejs/require.js"></script>
 </head>
 <body>
 	<div id="content"></div>
-	<footer>
-        <script type="text/javascript">
-            var require = {
-               baseUrl: 'js',
-				paths: {
-					'jquery': '../libs/jquery/dist/jquery.min',
-					'Backbone': '../libs/backbone/backbone',
-					'underscore': '../libs/underscore/underscore-min'
-				},
-				shim: {
-					'Backbone': {
-						exports: 'Backbone',
-						deps: ['underscore', 'jquery']
-					},
-					'underscore': {
-						exports: '_'
-					}
-				},
-				waitSeconds: 15
-			};
-		</script>
-        <script type="text/javascript" data-main="index" src="libs/requirejs/require.js"></script>
-	</footer>
 </body>
 </html>

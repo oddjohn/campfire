@@ -28,11 +28,11 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
         /**
          * @type {Object}
          */
-		__stage__: {},
+		__stage: {},
         /**
          * @type {Object}
          */
-		__graphics__: {},
+		_graphics: {},
         /**
          * milliseconds per frame last
          * @type {Number}
@@ -57,7 +57,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
          * @returns void
          */
 		render: function () {
-			this.__circle__.update();
+			this.__circle.update();
 		},
         /**
          * init the game application.
@@ -73,33 +73,33 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 				}
 			});
 			$('div#content').append($('<div></div>').attr('id', 'stage'));
-			this.__stage__ = new Stage('#stage');
-			this.__graphics__ = this.__stage__.graphics();
-			this.__circle__ = new Circle(0, 0, 50);
-			this.__circle__.fillColor('#333');
-			this.__stage__.add(this.__circle__);
-			this.__interval__ = setInterval(this.update.bind(this), this.__speed__);
+			this.__stage = new Stage('#stage');
+			this._graphics = this.__stage.graphics();
+			this.__circle = new Circle(0, 0, 50);
+			this.__circle.fillColor('#333');
+			this.__stage.add(this.__circle);
+			this.__interval = setInterval(this.update.bind(this), this.__speed__);
 		},
         /**
          * pause the game.
          * @returns void
          */
 		pause: function() {
-			clearInterval(this.__interval__);
+			clearInterval(this.__interval);
 		},
         /**
          * resume the game when paused.
          * @returns void
          */
 		resume: function() {
-			this.__interval__ = setInterval(this.update.bind(this), this.__speed__);
+			this.__interval = setInterval(this.update.bind(this), this.__speed__);
 		},
         /**
          * clear the game stage
          * @returns void
          */
 		clear: function() {
-			this.__stage__.clear();
+			this.__stage.clear();
 		},
 		handleKeyEvent: handleKeyEvent
 	});

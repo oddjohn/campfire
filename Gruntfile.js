@@ -26,22 +26,29 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
-        buildall: {
-            files: [{
-                expand: true,
-                cwd: 'src',
-                src: ['**/*.css'],
-                dest: 'app'
-            }]
-        }
+      buildall: {
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['**/*.css'],
+          dest: 'app'
+        }]
+      }
+    },
+    jshint: {
+      options: {
+          reporter: require('jshint-stylish')
+      },
+      all: ['Gruntfile.js', 'src/**/*.js', 'campfire-framework/src/**/*.js']
     },
     watch: {
       scripts: {
         files: [
           'src/**/*.js',
-          'campfire-framework/src/**/*.js'
+          'campfire-framework/src/**/*.js',
+          'Gruntfile.js'
         ],
-        tasks: ['minall'],
+        tasks: ['minall', 'jshint'],
         options: {
           spawn: true,
           interrupt: true
@@ -53,7 +60,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
+  grunt.registerTask('release', ['uglify', 'cssmin']);
   grunt.registerTask('minall', ['uglify:buildall', 'cssmin:buildall']);
   grunt.registerTask('default', ['uglify', 'cssmin', 'watch']);
 };
