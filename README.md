@@ -1,6 +1,13 @@
 campfire
 ========
 
+## Coding Style
+
+'Cause this project is mainly using javascript, so there is some coding style for javascript.
+
+protect variable: starting with `_`, like this -> \_stage, \_graphics
+private variable: starting with `__`, like this -> \_\_instance
+
 ### Description:
 
 This is a 2D platform Game in progress.
