@@ -17,11 +17,6 @@ module.exports = function(grunt) {
           cwd: 'src',
           src: '**/*.js',
           dest: 'app'
-        }, {
-          expand: true,
-          cwd: 'campfire-framework/src',
-          src: '**/*.js',
-          dest: 'app/js'
         }]
       }
     },
@@ -39,13 +34,12 @@ module.exports = function(grunt) {
       options: {
           reporter: require('jshint-stylish')
       },
-      all: ['Gruntfile.js', 'src/**/*.js', 'campfire-framework/src/**/*.js']
+      all: ['Gruntfile.js', 'src/**/*.js']
     },
     watch: {
       scripts: {
         files: [
           'src/**/*.js',
-          'campfire-framework/src/**/*.js',
           'Gruntfile.js'
         ],
         tasks: ['minall', 'jshint'],
