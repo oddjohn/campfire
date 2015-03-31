@@ -23,7 +23,7 @@ define(['lang/Class'], function(Class) {
 			return this._y;
 		},
 		update: function () {
-			this.draw(this._graphics);
+			this.update(this._graphics);
 		},
 		graphics: function (graphics) {
 			return (this._graphics = graphics || this._graphics);
@@ -36,6 +36,6 @@ define(['lang/Class'], function(Class) {
 		},
 		contains: function () {},
 		intersects: function() {},
-		draw: function (graphics) {}
+		update: function (graphics) {}
 	});
 });

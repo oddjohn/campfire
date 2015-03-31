@@ -1,7 +1,7 @@
 define(['awt/Shape'], function(Shape) {
 	"use strict";
 	return Shape.extend({
-		draw: function (graphics) {
+		update: function (graphics) {
 			var k = (this._width / 0.75) / 2,
 				w = this._width / 2,
 				h = this._height / 2;

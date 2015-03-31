@@ -57,9 +57,9 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
          * @returns void
          */
 		render: function () {
-			this.__circle.update();
-            this.__circle_outer.update();
+			this.__stage.update();
 		},
+
         /**
          * init the game application.
          * @returns void
@@ -77,13 +77,14 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 			this.__stage = new Stage('#stage');
 			this._graphics = this.__stage.graphics();
 			this.__circle = new Circle(this.__stage.width() / 2, this.__stage.height()/2, 50);
-			this.__circle.fillColor('#333');
+			this.__circle.fillColor('#222');
             this.__circle_outer = new Circle(this.__stage.width() / 2, this.__stage.height()/2, 70);
             this.__circle_outer.fillColor('lightgreen');
 			this.__stage.add(this.__circle);
 			this.__stage.add(this.__circle_outer);
 			this.__interval = setInterval(this.update.bind(this), this.__speed);
 		},
+
         /**
          * pause the game.
          * @returns void
@@ -91,6 +92,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 		pause: function() {
 			clearInterval(this.__interval);
 		},
+
         /**
          * resume the game when paused.
          * @returns void
@@ -98,6 +100,7 @@ define(['jquery', 'awt/Stage', 'awt/Circle', 'lang/Class'], function($, Stage, C
 		resume: function() {
 			this.__interval = setInterval(this.update.bind(this), this.__speed);
 		},
+
         /**
          * clear the game stage
          * @returns void

@@ -4,6 +4,11 @@ define(function (require, exports, module) {
     };
     var fnTest = /\b__super\b/;
 
+    /**
+     * clone an object
+     * @param obj
+     * @returns {exports.constructor}
+     */
     Class.clone = function (obj) {
         var newObj = (obj.constructor) ? new obj.constructor() : {};
         for (var key in obj) {
@@ -96,6 +101,22 @@ define(function (require, exports, module) {
             };
         }
 
+        function _generate_setters (element, index) {
+            if (element == propertyName) {
+                setter = index;
+                Class.defineGetterSetter(prototype, propertyName, prop[name], prop[setter] ?
+                    prop[setter] : prototype[setter], name, setter);
+            }
+        }
+
+        function _generate_getters (element, index) {
+            if (element == propertyName) {
+                getter = index;
+                Class.defineGetterSetter(prototype, propertyName, prop[getter] ?
+                    prop[getter] : prototype[getter], prop[name], getter, name);
+            }
+        }
+
         for (var idx = 0, li = arguments.length; idx < li; ++idx) {
             var prop = arguments[idx];
             for (var name in prop) {
@@ -121,23 +142,11 @@ define(function (require, exports, module) {
                         var getter, setter, propertyName;
                         if (this.__getters__ && this.__getters__[name]) {
                             propertyName = this.__getters__[name];
-                            this.__getters__.forEach(function (element, index) {
-                                if (element == propertyName) {
-                                    setter = index;
-                                    Class.defineGetterSetter(prototype, propertyName, prop[name], prop[setter] ?
-                                        prop[setter] : prototype[setter], name, setter);
-                                }
-                            });
+                            this.__getters__.forEach(_generate_setters);
                         }
                         if (this.__setters__ && this.__setters__[name]) {
                             propertyName = this.__setters__[name];
-                            this.__getters__.forEach(function (element, index) {
-                                if (element == propertyName) {
-                                    getter = index;
-                                    Class.defineGetterSetter(prototype, propertyName, prop[getter] ?
-                                        prop[getter] : prototype[getter], prop[name], getter, name);
-                                }
-                            });
+                            this.__getters__.forEach(_generate_getters);
                         }
                     }
                 }

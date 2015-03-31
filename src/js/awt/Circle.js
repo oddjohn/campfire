@@ -8,7 +8,7 @@ define(['awt/Ellipse'], function(Ellipse) {
 			this._radius = radius;
 			Ellipse.prototype.constructor.call(this, x, y, radius * 2, radius * 2);
 		},
-		draw: function (graphics) {
+		update: function (graphics) {
 			var tmpFillStyle = graphics.fillStyle;
 			var tmpStrokeStyle = graphics.strokeStyle;
 			graphics.fillStyle = this._fillColor;

@@ -8,7 +8,7 @@ define(['jquery', 'awt/Container'], function($, Container) {
         constructor: function (container) {
             this.__stage = typeof container == 'string' ? $(container) : container;
             this.__childs = [];
-            this.__scene = $('<canvas></canvas>')
+            this.__scene = $('<canvas>')
                 .attr({
                     id: this.__stage.attr('id') + '-canvas',
                     width: this.__stage.width(),
@@ -27,8 +27,6 @@ define(['jquery', 'awt/Container'], function($, Container) {
             this.__childs.push(child);
         }, remove: function (child) {
             // TODO: remove from a list
-        }, scene: function () {
-            return this.__scene;
         }, graphics: function () {
             return this._graphics;
         }, clear: function () {
@@ -38,6 +36,11 @@ define(['jquery', 'awt/Container'], function($, Container) {
                 height: this.height()
             });
             this._graphics.globalCompositeOperation = 'lighter';
+        }, update: function () {
+            var index = this.__childs.length;
+            while (index--) {
+                this.__childs[index].update();
+            }
         }
     });
 });
