@@ -1,4 +1,4 @@
-define(['/Component'], function(Component) {
+define(['awt/Component'], function(Component) {
 	"use strict";
 	/**
 	 *

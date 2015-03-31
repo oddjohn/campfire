@@ -12,6 +12,11 @@
 				'Backbone': '../libs/backbone/backbone-min',
 				'underscore': '../libs/underscore/underscore-min'
 			},
+            map: {
+                '*': {
+                    css: 'require-css/css.min'
+                }
+            },
 			shim: {
 				'Backbone': {
 					exports: 'Backbone',
@@ -24,7 +29,7 @@
 			waitSeconds: 15
 		};
 	</script>
-    <script type="text/javascript" data-main="index" src="libs/require/require.js"></script>
+    <script type="text/javascript" data-main="index" src="libs/require/require.min.js"></script>
 </head>
 <body>
 	<div id="content"></div>

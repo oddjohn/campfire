@@ -2,7 +2,7 @@
  * Module Container
  * @module awt/Container
  */
-define(['/Component'], function(Component) {
+define(['awt/Component'], function(Component) {
 	return Component.extend({
 		_graphics: {},
 		add: function (sprite) {

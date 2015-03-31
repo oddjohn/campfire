@@ -2,7 +2,7 @@
  * Module Stage
  * @module awt/Stage
  */
-define(['jquery', '/Container'], function($, Container) {
+define(['jquery', 'awt/Container'], function($, Container) {
 	"use strict";
     return Container.extend({
         constructor: function (container) {
@@ -32,10 +32,12 @@ define(['jquery', '/Container'], function($, Container) {
         }, graphics: function () {
             return this._graphics;
         }, clear: function () {
+            this._graphics.globalCompositeOperation = 'source-over';
             this.__scene.attr({
                 width: this.width(),
                 height: this.height()
             });
+            this._graphics.globalCompositeOperation = 'lighter';
         }
     });
 });

@@ -1,7 +1,7 @@
 /**
  * @module awt/Circle
  */
-define(['/Ellipse'], function(Ellipse) {
+define(['awt/Ellipse'], function(Ellipse) {
 	"use strict";
 	return Ellipse.extend({
 		constructor: function(x, y, radius) {

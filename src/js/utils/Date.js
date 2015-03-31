@@ -1,4 +1,4 @@
-define(['../lang/Class'], function(Class) {
+define(['lang/Class'], function(Class) {
 	return Class.extend({
 		constructor: function() {
 			this.__date = new Date();
