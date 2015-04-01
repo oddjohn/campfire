@@ -22,7 +22,7 @@ define(['lang/Class'], function(Class) {
 		y: function () {
 			return this._y;
 		},
-		update: function () {
+		render: function () {
 			this.update(this._graphics);
 		},
 		graphics: function (graphics) {

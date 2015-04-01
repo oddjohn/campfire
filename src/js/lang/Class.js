@@ -1,7 +1,6 @@
 define(function (require, exports, module) {
     "use strict";
-    var Class = function () {
-    };
+    var Class = function () {};
     var fnTest = /\b__super\b/;
 
     /**

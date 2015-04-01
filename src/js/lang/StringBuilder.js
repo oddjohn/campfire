@@ -1,4 +1,7 @@
-define(function(require, exports, module) {
+/**
+ * @module lang/StringBuilder
+ */
+define([], function() {
 	function StringBuilder () {
 		this.__strings = [];
 	}
@@ -8,5 +11,5 @@ define(function(require, exports, module) {
 	StringBuilder.prototype.toString = function() {
 		return this.__strings.join("");
 	};
-	module.exports = StringBuilder;
+	return StringBuilder;
 });
