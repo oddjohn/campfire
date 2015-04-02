@@ -1,4 +1,4 @@
-define([], function() {
+define([], function () {
     "use strict";
     return {
         blue: '0000ff',

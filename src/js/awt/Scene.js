@@ -1,7 +1,7 @@
-define(['lang/Class'], function(Class) {
-	"use strict";
-	return Class.extend({
-		add: function (child) {
-		}
-	});
+define(['lang/Class'], function (Class) {
+    "use strict";
+    return Class.extend({
+        add: function (child) {
+        }
+    });
 });

@@ -1,7 +1,10 @@
 /**
  * @module sprites/Box
  */
-define(['sprites/Sprite'], function(Sprite) {
+define(['sprites/Sprite'], function (Sprite) {
     "use strict";
-    return Sprite.extend({});
+    return Sprite.extend({
+        xVelocity: 0,
+        yVelocity: 0
+    });
 });
