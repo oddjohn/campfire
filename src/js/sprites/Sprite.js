@@ -3,5 +3,7 @@
  */
 define(['lang/Class'], function (Class) {
     "use strict";
-    return Class.extend({});
+    return Class.extend({
+
+    });
 });

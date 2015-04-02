@@ -1,7 +1,6 @@
 define(function (require, exports, module) {
     "use strict";
-    var Class = function () {
-    };
+    var Class = function () {};
     var fnTest = /\b__super\b/;
 
     /**
@@ -101,7 +100,7 @@ define(function (require, exports, module) {
             };
         }
 
-        function _generate_setters(element, index) {
+        function _generate_setters (element, index) {
             if (element == propertyName) {
                 setter = index;
                 Class.defineGetterSetter(prototype, propertyName, prop[name], prop[setter] ?
@@ -109,7 +108,7 @@ define(function (require, exports, module) {
             }
         }
 
-        function _generate_getters(element, index) {
+        function _generate_getters (element, index) {
             if (element == propertyName) {
                 getter = index;
                 Class.defineGetterSetter(prototype, propertyName, prop[getter] ?
