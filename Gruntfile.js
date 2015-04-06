@@ -7,7 +7,20 @@ module.exports = function(grunt) {
                 mangle: true,
                 drop_console: false
             },
-            buildall: {
+            release: {
+                options: {
+                    compress: false,
+                    report: 'min',
+                    sourceMap: false
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src',
+                    src: '**/*.js',
+                    dest: 'app'
+                }]
+            },
+            debug: {
                 options: {
                     compress: false,
                     report: "min",
@@ -22,7 +35,7 @@ module.exports = function(grunt) {
             }
         },
         cssmin: {
-            buildall: {
+            release: {
                 files: [{
                     expand: true,
                     cwd: 'src',
@@ -49,16 +62,19 @@ module.exports = function(grunt) {
                     interrupt: true
                 }
             }
+        },
+        clean: {
+            release: ['app/js/**/*.map']
         }
     });
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('release', ['uglify', 'cssmin']);
-    grunt.registerTask('minall', ['uglify:buildall', 'cssmin:buildall']);
-    grunt.registerTask('default', ['uglify', 'cssmin', 'watch']);
+    grunt.registerTask('release', ['uglify:release', 'cssmin:release', 'clean:release']);
+    grunt.registerTask('minall', ['uglify:debug', 'cssmin:release']);
+    grunt.registerTask('default', ['uglify:debug', 'cssmin:release', 'watch']);
 };
