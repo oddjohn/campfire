@@ -17,6 +17,10 @@ Aiming at a aerial middle-ages background adventure story of 2d graphics.
 
 Just open index.html in browser or use [node-webkit], there is a package.json file for node-webkit to run with.
 
+Or:
+
+Execute `npm start` in your terminal/console, then visit [http://localhost:8080/app/index.html](http://localhost:8080/app/index.html)
+
 [node-webkit]: http://github.com/rogerwang/node-webkit
 
 ### Requirements
