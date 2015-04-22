@@ -14,7 +14,6 @@ gulp.task('compress', function() {
 		.pipe(uglify({
 			mangle: true
 		}))
-		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('./app/js'));
 });
 
@@ -24,12 +23,11 @@ gulp.task('less', function() {
 			paths: [path.join(__dirname, 'less', 'includes')]
 		}))
 		.pipe(cssmin())
-		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('copy', function() {
-	return gulp.src('view/res/**/*')
+	return gulp.src(['view/res/**/*', 'view/html/**/*'])
 		.pipe(copy('./app', {prefix: 2}));
 });
 
