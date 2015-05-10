@@ -1,0 +1,37 @@
+{
+  "name": "campfire",
+  "version": 0,
+  "licenses": [
+    "MIT"
+  ],
+  "main": "app/index.html",
+  "nodejs": true,
+  "window": {
+    "resizable": false,
+    "icon": "",
+    "title": "Campfire",
+    "position": "center",
+    "toolbar": false,
+    "show": false,
+    "width": 1024,
+    "height": 576
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "devDependencies": {
+    "amdefine": "^0.1.0",
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-copy": "0.0.2",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-jshint": "^1.10.0",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "scripts": {
+    "start": "http-server -p 8080"
+  }
+}

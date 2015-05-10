@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Campfire</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script type="text/javascript">
+        var require = {
+           baseUrl: 'js',
+			paths: {
+				'jquery': '../libs/jquery/jquery.min',
+				'Backbone': '../libs/backbone/backbone-min',
+				'underscore': '../libs/underscore/underscore-min'
+			},
+            map: {
+                '*': {
+                    css: 'require-css/css.min'
+                }
+            },
+			shim: {
+				'Backbone': {
+					exports: 'Backbone',
+					deps: ['underscore', 'jquery']
+				},
+				'underscore': {
+					exports: '_'
+				}
+			},
+			waitSeconds: 15
+		};
+	</script>
+    <script type="text/javascript" data-main="index" src="libs/require/require.min.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>
